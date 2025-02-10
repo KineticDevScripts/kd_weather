@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time And Weather</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div id="menu-container" class="menu" style="display: none;">
+    <div id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <img src="https://r2.fivemanage.com/KQGRRm8DukQthtgazMChN/images/kinetic-3.jpg" alt="Admin Logo" class="sidebar-logo">
+        <div class="sidebar-title">Time And Weather</div>
+      </div>
+      <ul>
+        <li onclick="openTab('dashboard')" class="dashboard" role="button">Management</li>
+        <li onclick="openTab('settings')" class="settings" role="button">Settings</li>
+      </ul>
+    </div>
+    
+    <div id="main-content" class="main-content">
+      <button onclick="closeMenu()" class="close-button" aria-label="Close Menu"><i class="fa fa-close"></i></button>
+
+      <div id="dashboard" class="tab active">
+        <div class="dashboard-header">
+          <h2>Management</h2>
+        </div>
+
+        <button id="refresh" class="refresh-button" onclick="fetchServerData()" aria-label="Refresh">🔄</button>
+      
+        <div class="dashboard-container">
+          <div class="dashboard-section">
+            <h3>Current Weather</h3>
+            <p id="current-weather">Loading...</p>
+            <br>
+
+            <div class="button-group">
+              <button onclick="freezeWeather()" class="dashboard-btn"><i class="fa fa-stop"></i> Freeze Weather (Toggle)</button>
+            </div>
+          </div>
+      
+          <div class="dashboard-section">
+            <h3>Current Time</h3>
+            <p id="current-time">Loading...</p>
+            <br>
+
+            <div class="button-group">
+              <button onclick="freezeTime()" class="dashboard-btn3"><i class="fa fa-stop"></i> Freeze Time (Toggle)</button>
+            </div>
+          </div>
+      
+          <div class="dashboard-section">
+            <h3>Set Weather</h3>
+            <div class="button-group">
+              <button onclick="setExtraSunny()" class="dashboard-btn4"><i class="fa fa-sun"></i> Extra Sunny</button>
+              <button onclick="setClear()" class="dashboard-btn5"><i class="fa fa-sun"></i> Clear</button>
+              <button onclick="setNeutral()" class="dashboard-btn6"><i class="fa fa-cloud-moon"></i> Neutral</button>
+              <button onclick="setSmog()" class="dashboard-btn7"><i class="fa fa-smog"></i> Smog</button>
+              <button onclick="setFoggy()" class="dashboard-btn8"><i class="fa fa-smog"></i> Foggy</button>
+              <button onclick="setOvercast()" class="dashboard-btn9"><i class="fa fa-cloud"></i> Overcast</button>
+              <button onclick="setClouds()" class="dashboard-btn10"><i class="fa fa-cloud"></i> Clouds</button>
+              <button onclick="setClearing()" class="dashboard-btn11"><i class="fa fa-cloud-sun"></i> Clearing</button>
+              <button onclick="setRain()" class="dashboard-btn12"><i class="fa fa-cloud-rain"></i> Rain</button>
+              <button onclick="setThunder()" class="dashboard-btn13"><i class="fa fa-cloud-bolt"></i> Thunder</button>
+              <button onclick="setSnow()" class="dashboard-btn14"><i class="fa fa-snowflake"></i> Snow</button>
+              <button onclick="setBlizzard()" class="dashboard-btn15"><i class="fa fa-snowflake"></i> Blizzard</button>
+              <button onclick="setSnowLight()" class="dashboard-btn16"><i class="fa fa-snowflake"></i> Light Snow</button>
+              <button onclick="setXmas()" class="dashboard-btn17"><i class="fa fa-snowflake"></i> Xmas</button>
+            </div>
+          </div>
+      
+          <div class="dashboard-section">
+            <h3>Set Time</h3>
+            <p id="slider-time">1:00</p>
+            <input type="range" id="server-time" min="1" max="23" step="1" value="1" oninput="updateTimeSlider(this.value)">
+            <div class="button-group">
+              <button onclick="manualSetTime()" class="dashboard-btn18"><i class="fa fa-clock"></i> Set Slider Time</button>
+            </div>
+
+            <br>
+            <h2>Presets</h2>
+            <div class="button-group">
+              <button onclick="setMorning()" class="dashboard-btn19"><i class="fa fa-sun"></i> Morning</button>
+              <button onclick="setNoon()" class="dashboard-btn20"><i class="fa fa-sun"></i> Noon</button>
+              <button onclick="setEvening()" class="dashboard-btn21"><i class="fa fa-moon"></i> Evening</button>
+              <button onclick="setNight()" class="dashboard-btn22"><i class="fa fa-moon"></i> Night</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div id="settings" class="tab">
+        <div class="settings-header">
+          <h2>Settings</h2>
+        </div>
+      
+        <div class="settings-container">
+  
+          <div class="settings-box">
+            <h3>Menu Colors</h3>
+            <div>
+              <label for="primary-color" class="color-label">Primary Color:</label>
+              <input type="color" id="primary-color" value="#ff0000" onchange="updatePrimaryColor(this.value)">
+            </div>
+            <div>
+              <label for="secondary-color" class="color-label">Secondary Color:</label>
+              <input type="color" id="secondary-color" value="#0a0a0a" onchange="updateSecondaryColor(this.value)">
+            </div>
+          </div>
+      
+          <div class="settings-box">
+            <h3>Menu Size</h3>
+            <div>
+              <label for="menu-size" class="size-label">Menu Size:</label>
+              <input type="range" id="menu-size" min="60" max="80" step="5" oninput="updateMenuSize(this.value)">
+            </div>
+          </div>
+      
+          <div class="settings-box">
+            <h3>Menu Position</h3>
+            <button onclick="enableDragMode()" class="edit-pos-button">Edit Position</button>
+            <button onclick="savePosition()" class="save-pos-button" id="save-position-btn" hidden>Save Position</button>
+          </div>
+        </div>
+      </div>
+    
+  <script src="script.js"></script>
+</body>
+</html>
