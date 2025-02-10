@@ -1,21 +1,20 @@
 # Fivem Weather System
 
-A weather system for FiveM server with a customizable settings menu allowing admins to manage the current server weather and time!
+A weather system for FiveM servers with a customizable settings menu allowing admins to manage the current server weather and time!
 
 [![Discord](https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/UzkdTXqarr)
 
 ## Management Tab
-![image](https://github.com/user-attachments/assets/88b1f386-523b-424c-b7c2-90f32c62f761)
+![image](https://github.com/user-attachments/assets/072562b9-7fcc-4dd1-8b73-5564fdca75ae)
 
 ## Settings Tab
-![image](https://github.com/user-attachments/assets/c2cedc93-1d5a-44d0-a7d8-80ef8c64ba5e)
+![image](https://github.com/user-attachments/assets/bdf35bf5-1dc7-43f6-ae8f-e77ff0eee18a)
 
 ## Features:
-* Change the current time
-* Change the current weather
-* Set blackout
 * Freeze time
 * Freeze weather
+* Change the current time
+* Change the current weather
 * Time and weather synced across all players
 * Settings to change design of the menu
 
