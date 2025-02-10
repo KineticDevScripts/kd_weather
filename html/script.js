@@ -203,6 +203,7 @@ function updatePrimaryColor(color) {
   document.querySelector(".edit-pos-button").style.backgroundColor = color;
   document.querySelector(".save-pos-button").style.backgroundColor = color;
   document.querySelector(".dashboard-header").style.borderBottom = `6px solid ${color}`;
+  document.querySelector(".refresh-button").style.backgroundColor = color;
   document.querySelector(".settings-header").style.borderBottom = `6px solid ${color}`;
 
   document.querySelectorAll("[class^='dashboard-btn']").forEach(btn => {
@@ -295,6 +296,7 @@ function applySettings(settings) {
   document.querySelector(".sidebar").style.backgroundColor = settings.primaryColor;
   document.querySelector(".sidebar-header").style.borderBottom = `6px solid ${settings.secondaryColor}`;
   document.querySelector(".dashboard-header").style.borderBottom = `6px solid ${settings.primaryColor}`;
+  document.querySelector(".refresh-button").style.backgroundColor = settings.primaryColor;
   document.querySelector(".close-button").style.backgroundColor = settings.primaryColor;
   document.querySelector(".dashboard").style.backgroundColor = settings.secondaryColor;
   document.querySelector(".settings").style.backgroundColor = settings.secondaryColor;
