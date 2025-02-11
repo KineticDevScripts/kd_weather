@@ -130,7 +130,7 @@ AddEventHandler('kd_weather:setWeather', function(weather)
             CurrentWeather = string.upper(weather)
             newWeatherTimer = 10
             TriggerEvent('kd_weather:requestSync')
-            Utils.notify('Success', L('notify.success.setTime'):format(string.upper(weather)), 'success', source)
+            Utils.notify('Success', L('notify.success.setWeather'):format(string.upper(weather)), 'success', source)
         else
             Utils.notify('Error', L('notify.error.invalidWeatherType'), 'error', source)
         end
